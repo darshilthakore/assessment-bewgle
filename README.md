@@ -26,9 +26,65 @@
 
 ### /process 
 - `routes/process.js` returns a json response and also saves it in the database
+- Open Postman and test for the `/process` with any HTTP method.
+-  Example response (returned after random duration)
+	```
+	{
+	    "date": "2021-02-02T15:25:27.182Z",
+	    "method": "GET",
+	    "headers": {
+	        "authorization": "Basic YWRtaW46cGFzc3dvcmQ=",
+	        "user-agent": "PostmanRuntime/7.26.8",
+	        "accept": "*/*",
+	        "postman-token": "38ae9dd1-52c4-436e-bcf4-b44b8a9963ab",
+	        "host": "localhost:3000",
+	        "accept-encoding": "gzip, deflate, br",
+	        "connection": "keep-alive"
+	    },
+	    "path": "/process",
+	    "query": {},
+	    "body": {},
+	    "duration": 16
+	}
+	```
+
 ### /stats
 - `routes/stats.js` returns the json response of the total requests grouped by HTTP methods, alongwith average duration and total count of the methods
+- Example response
+	```
+	[
+	    {
+	        "_id": "POST",
+	        "average_response": 23,
+	        "total": 1
+	    },
+	    {
+	        "_id": "GET",
+	        "average_response": 17.75,
+	        "total": 4
+	    }
+	]
+	```
 
 ### /stats/:fromDate&:toDate
 
 - `routes/stats.js` returns the json response of the total requests grouped by HTTP methods, alongwith average duration and total count of the methods between a range of date
+- example for a request between 2021-01-03 and 2021-02-03 (YYYY-MM-DD)
+	`localhost:3000/stats/2021-01-03&2021-02-03`
+	```
+	[
+	    {
+	        "_id": "POST",
+	        "average_response": 23,
+	        "total": 1
+	    },
+	    {
+	        "_id": "GET",
+	        "average_response": 17.75,
+	        "total": 4
+	    }
+	]
+
+	
+	```
+
