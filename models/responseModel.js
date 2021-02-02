@@ -16,7 +16,7 @@ const responseSchema = new Schema({
    query: [Object],
    body: [Object],
    duration: {
-       type: String
+       type: Number
    }
 }, {
     timestamps: false
