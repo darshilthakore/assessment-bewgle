@@ -2,7 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-
 const Responses = require('../models/responseModel');
 
 const responseRouter = express.Router();
@@ -21,7 +20,7 @@ responseRouter.route('/')
         date: date.toISOString(),
         method: req.method,
         headers: req.headers,
-        path: req.path,
+        path: req.originalUrl,
         query: req.query,
         body: req.body,
         duration: duration
