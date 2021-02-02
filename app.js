@@ -7,6 +7,7 @@ const {mongoConnect} = require('./services/mongoService');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var responseRouter = require('./routes/process');
 
 mongoConnect.then( db => {
   console.log('Connected to the mongo server successfully');
@@ -29,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/process', responseRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
