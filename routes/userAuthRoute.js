@@ -28,6 +28,7 @@ userAuthRouter.route('/')
         if (err){
             return next(err);
         }
+        console.log("test");
         res.status(201).json(user);
     } )
 
