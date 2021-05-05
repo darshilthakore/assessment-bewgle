@@ -9,6 +9,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var responseRouter = require('./routes/process');
 var statsRouter = require('./routes/stats');
+var userAuthsRouter = require('./routes/userAuthRoute');
+
 
 mongoConnect.then( db => {
   console.log('Connected to the mongo server successfully');
@@ -30,6 +32,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/signup', userAuthsRouter);
 app.use('/users', usersRouter);
 app.use('/process', responseRouter);
 app.use('/stats', statsRouter);
